@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Mukta&family=Ubuntu&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    
+        <h1>Calculadora do Espaço-Tempo Planeta Miller</h1>
+
+            <p>Você já imaginou fazer parte da tripulação de Cooper que aterissa no Planeta Miller no filme Interestellar? Eu já!</p>
+
+            <p>Contextualizando para quem não assistiu, Miller é um planeta composto majoritariamente por água, em que 1 hora nele equivale a 7 anos na Terra. Assustador, não? Escutar todo o primeiro álbum do Black Alien lá significa deixar passar 47.012 horas, 1.958 dias ou 5.37 anos na terra.</p>
+
+            <p>Então, se você é um Mochileiro das Galáxias, salve esta calculadora nos favoritos do seu Guia e não entre em pânico, 7 anos nem é tudo isso.</p>
+
+        <h3> Digite abaixo quantos minutos no Planeta Miller você quer calcular</h3>
+
+        <input class="minutos-miller"/>
+
+        <button class="botao-calcular">Calcular</button>
+
+        <p id="resposta"></p>
+        <p id="resposta2"></p>
+        <p id="resposta3"></p>
+        <br> 
+    
+
+<script>   
+
+    function calcula() {
+
+        var tempoMillerMin = parseInt( document.querySelector("input").value );
+
+        var tempoTerraHoras = ( 61320 * tempoMillerMin ) / 60;
+        var tempoTerraDias = ( 61320 * tempoMillerMin ) / 1440;
+        var tempoTerraAnos = ( 61320 * tempoMillerMin ) / 525600;
+
+        document.getElementById("resposta").innerHTML = "Aproximadamente " + parseInt(tempoTerraHoras) + " horas";
+        document.getElementById("resposta2").innerHTML = "Aproximadamente " + parseInt(tempoTerraDias) + " dias";
+        document.getElementById("resposta3").innerHTML = "Aproximadamente " + parseInt(tempoTerraAnos) + " anos";
+
+    }
+
+    var button = document.querySelector("button");
+    button.onclick = calcula;
+    
+
+</script>
+
+</body>
