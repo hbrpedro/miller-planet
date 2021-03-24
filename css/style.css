@@ -1,22 +1,110 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
 body {
 
+    font-family: 'Mukta', sans-serif;
     font-size: 12px;
-    background-color: whitesmoke;
+    color: black;
+    background: url(https://wallpapermemory.com/uploads/674/interstellar-wallpaper-hd-2560x1440-238928.jpg);
+    background-color: black;
+    background-size: cover;
+    background-repeat: no-repeat;
     text-align: center;
+    height: 100vh;
     
+}
+
+.container {
+
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    width: 90vw;
+    padding: 2em 1em;
+    margin: 0 auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-55%);
 
 }
 
-h1, h3 {
+.titulo, .topico {
 
     font-family: 'Ubuntu', sans-serif;
-
+    padding-bottom: 0.7em;
+    margin: 0 1.5em;
 
 }
 
-p {
+.paragrafo {
 
-    font-family: 'Mukta', sans-serif;
+    padding-bottom: 0.6em;
+    padding-right: 2em;
+    padding-left: 2em;
     
+}
+
+.minutos-miller {
+    
+    font-family: 'Ubuntu', sans-serif;
+    background-color: white;
+    border-radius: 4px;
+    border: none;
+    height: 1.8em;
+    text-align: center;
+    margin: 0.6em 0;
+
+}
+
+.minutos-miller:hover {
+
+    background-color: whitesmoke;
+
+}
+
+.botao-calcular {
+
+    background-color: darkorange;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 7em;
+    height: 1.8em;
+
+}
+
+.botao-calcular:hover {
+
+    transition: 1000ms;
+    background-color: rgb(255, 130, 0);
+
+}
+
+.rodape {
+
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.8em;
+    width: 100vw;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+
+}
+
+
+a {
+
+    text-decoration: underline;
+    color: rgba(255, 255, 255, 0.6);
+
+}
+
+a:visited {
+
+    color: rgba(255, 255, 255, 0.6);
 
 }
