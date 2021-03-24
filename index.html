@@ -1,81 +1,81 @@
 <!DOCTYPE html>
+<html lang="pt-br">
+    <head>
 
-<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Mukta&family=Ubuntu&display=swap" rel="stylesheet">
+        <title>Calculadora Miller</title>
+    </head>
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Mukta&family=Ubuntu&display=swap" rel="stylesheet">
+    <body>
+            
+                <div class="container">
 
-</head>
+                    <h1 class="titulo">Calculadora do Espaço-Tempo Planeta Miller</h1>
 
-<body>
+                        <p class="paragrafo">Você já imaginou fazer parte da tripulação de Cooper que aterissa no Planeta Miller no filme Interestellar? Eu já!</p>
 
-    
-        <div class="container">
+                        <p class="paragrafo">Contextualizando para quem não assistiu, Miller é um planeta composto majoritariamente por água, localizado próximo a um buraco negro. Nele, 1 hora equivale a 7 anos na Terra. Assustador, não? Assistir o Interestellar lá significa deixar passar 172.718 horas, 7.196 dias ou 19.7 anos na terra.</p>
 
-            <h1 class="titulo">Calculadora do Espaço-Tempo Planeta Miller</h1>
+                        <p class="paragrafo">Então, se você é um Mochileiro das Galáxias, salve esta calculadora nos favoritos do seu Guia e não entre em pânico, 7 anos nem é tudo isso.</p>
 
-                <p class="paragrafo">Você já imaginou fazer parte da tripulação de Cooper que aterissa no Planeta Miller no filme Interestellar? Eu já!</p>
+                    <h3 class="topico"> Digite abaixo quantos minutos no Planeta Miller você quer calcular:</h3>
 
-                <p class="paragrafo">Contextualizando para quem não assistiu, Miller é um planeta composto majoritariamente por água, localizado próximo a um buraco negro. Nele, 1 hora equivale a 7 anos na Terra. Assustador, não? Assistir o Interestellar lá significa deixar passar 172.718 horas, 7.196 dias ou 19.7 anos na terra.</p>
+                    <input class="minutos-miller"/>
 
-                <p class="paragrafo">Então, se você é um Mochileiro das Galáxias, salve esta calculadora nos favoritos do seu Guia e não entre em pânico, 7 anos nem é tudo isso.</p>
+                    <button class="botao-calcular">Calcular</button>
 
-            <h3 class="topico"> Digite abaixo quantos minutos no Planeta Miller você quer calcular</h3>
+                    <p id="resposta1"></p>
+                    <p id="resposta2"></p>
+                    <p id="resposta3"></p>
+                    <br> 
+                
+                </div>
 
-            <input class="minutos-miller"/>
+                <section class="rodape">
 
-            <button class="botao-calcular">Calcular</button>
+                    <p>Software desenvolvido na <a href="https://imersao.dev/" target="_blank">ImersãoDev</a> da <a href="https://cursos.alura.com.br/" target="_blank">Alura</a></p>
 
-            <p id="resposta1"></p>
-            <p id="resposta2"></p>
-            <p id="resposta3"></p>
-            <br> 
-        
-        </div>
+                </section>
+            
+            
 
-        <section class="rodape">
+        <script>   
 
-            <p>Software desenvolvido na <a href="https://imersao.dev/" target="_blank">ImersãoDev</a> da <a href="https://cursos.alura.com.br/" target="_blank">Alura</a></p>
+            document.querySelector("input").focus();
 
-        </section>
-    
-    
+            function calcula() {
 
-<script>   
+                var tempoMillerMin = parseFloat( document.querySelector("input").value );
 
-    document.querySelector("input").focus();
+                if( isNaN(tempoMillerMin) == true ) {
 
-    function calcula() {
+                    document.getElementById("resposta1").innerHTML = "Valor inválido, digite um número inteiro.";
+                    document.getElementById("resposta2").innerHTML = "";
+                    document.getElementById("resposta3").innerHTML = "";
 
-        var tempoMillerMin = parseFloat( document.querySelector("input").value );
+                } else {
 
-        if( isNaN(tempoMillerMin) == true ) {
+                    var tempoTerraHoras = ( 61320 * tempoMillerMin ) / 60;
+                    var tempoTerraDias = ( 61320 * tempoMillerMin ) / 1440;
+                    var tempoTerraAnos = ( 61320 * tempoMillerMin ) / 525600;
 
-            document.getElementById("resposta1").innerHTML = "Valor inválido, digite um número inteiro.";
-            document.getElementById("resposta2").innerHTML = "";
-            document.getElementById("resposta3").innerHTML = "";
+                    document.getElementById("resposta1").innerHTML = "Aproximadamente " + parseFloat(tempoTerraHoras).toFixed(1) + " horas";
+                    document.getElementById("resposta2").innerHTML = "Aproximadamente " + parseFloat(tempoTerraDias).toFixed(1) + " dias";
+                    document.getElementById("resposta3").innerHTML = "Aproximadamente " + parseFloat(tempoTerraAnos).toFixed(1) + " anos";
 
-        } else {
+                }
 
-            var tempoTerraHoras = ( 61320 * tempoMillerMin ) / 60;
-            var tempoTerraDias = ( 61320 * tempoMillerMin ) / 1440;
-            var tempoTerraAnos = ( 61320 * tempoMillerMin ) / 525600;
+            }
 
-            document.getElementById("resposta1").innerHTML = "Aproximadamente " + parseFloat(tempoTerraHoras).toFixed(1) + " horas";
-            document.getElementById("resposta2").innerHTML = "Aproximadamente " + parseFloat(tempoTerraDias).toFixed(1) + " dias";
-            document.getElementById("resposta3").innerHTML = "Aproximadamente " + parseFloat(tempoTerraAnos).toFixed(1) + " anos";
+            var button = document.querySelector("button");
+            button.onclick = calcula;
+            
+        </script>
 
-        }
+    </body>
 
-    }
-
-    var button = document.querySelector("button");
-    button.onclick = calcula;
-    
-
-</script>
-
-</body>
+</html>
