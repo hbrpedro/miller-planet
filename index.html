@@ -27,7 +27,7 @@
 
         <button class="botao-calcular">Calcular</button>
 
-        <p id="resposta"></p>
+        <p id="resposta1"></p>
         <p id="resposta2"></p>
         <p id="resposta3"></p>
         <br> 
@@ -35,17 +35,29 @@
 
 <script>   
 
+    document.querySelector("input").focus();
+
     function calcula() {
 
-        var tempoMillerMin = parseInt( document.querySelector("input").value );
+        var tempoMillerMin = parseFloat( document.querySelector("input").value );
 
-        var tempoTerraHoras = ( 61320 * tempoMillerMin ) / 60;
-        var tempoTerraDias = ( 61320 * tempoMillerMin ) / 1440;
-        var tempoTerraAnos = ( 61320 * tempoMillerMin ) / 525600;
+        if( isNaN(tempoMillerMin) == true ) {
 
-        document.getElementById("resposta").innerHTML = "Aproximadamente " + parseInt(tempoTerraHoras) + " horas";
-        document.getElementById("resposta2").innerHTML = "Aproximadamente " + parseInt(tempoTerraDias) + " dias";
-        document.getElementById("resposta3").innerHTML = "Aproximadamente " + parseInt(tempoTerraAnos) + " anos";
+            document.getElementById("resposta1").innerHTML = "Valor inválido, digite um número inteiro.";
+            document.getElementById("resposta2").innerHTML = "";
+            document.getElementById("resposta3").innerHTML = "";
+
+        } else {
+
+            var tempoTerraHoras = ( 61320 * tempoMillerMin ) / 60;
+            var tempoTerraDias = ( 61320 * tempoMillerMin ) / 1440;
+            var tempoTerraAnos = ( 61320 * tempoMillerMin ) / 525600;
+
+            document.getElementById("resposta1").innerHTML = "Aproximadamente " + parseFloat(tempoTerraHoras).toFixed(1) + " horas";
+            document.getElementById("resposta2").innerHTML = "Aproximadamente " + parseFloat(tempoTerraDias).toFixed(1) + " dias";
+            document.getElementById("resposta3").innerHTML = "Aproximadamente " + parseFloat(tempoTerraAnos).toFixed(1) + " anos";
+
+        }
 
     }
 
